@@ -1,7 +1,7 @@
 // Define Mongoose
-const mongoose = require('mongoose');
+const {Schema, model} = require('mongoose');
 
-const reactionSchema = new mongoose.Schema({
+const reactionSchema = new Schema({
   reactionId: {type: Schema.Types.ObjectId, default: () => new Types.ObjectId()},
   reactionBody: {type: String, required: true, maxLenght: 280},
   username: {type: String, required: true},
@@ -14,7 +14,7 @@ reactionSchema
     return `${this.createdAt}`; //Add formatting
   });
 
-const thoughtSchema = new mongoose.Schema({
+const thoughtSchema = new Schema({
   throughText: {type: String, required: true, minLength: 1, maxLength: 280},
   createdAt: {type: Date, default: Date.now()},
 
